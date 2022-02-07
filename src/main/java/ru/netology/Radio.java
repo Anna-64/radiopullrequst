@@ -9,12 +9,6 @@ public class Radio {
         this.numberRadioStation = numberRadioStation - 1;
     }
 
-    public Radio(int currentRadioStation, int currentVolume, int numberRadioStation) {
-        this.currentRadioStation = currentRadioStation;
-        this.currentVolume = currentVolume;
-        this.numberRadioStation = numberRadioStation;
-    }
-
     public Radio() {
 
     }
