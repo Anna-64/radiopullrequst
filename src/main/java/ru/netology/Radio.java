@@ -1,53 +1,63 @@
 package ru.netology;
 
 public class Radio {
-    private int currentRadioStation; //запрашиваем текущую радиостанцию
-    private int currentVolume; // запрашиваем текущую громкость
+    private int currentRadioStation; //текущая радиостанция
+    private int currentVolume; // текущую громкость
+    private int numberRadioStation = 10 - 1; //количество радиостанций
 
-    public int getCurrentRadioStation() { //узнаем текущую радиостанцию
-        return this.currentRadioStation;
+    public Radio(int numberRadioStation) {
+        this.numberRadioStation = numberRadioStation - 1;
     }
 
-    public void setCurrentRadioStation(int newCurrentRadioStation) {  //увеличиваю текущую радиостанцию на 10
-        if (newCurrentRadioStation < 0) {
-            newCurrentRadioStation = 9;
+    public Radio() {
+
+    }
+
+    public int getNumberChanel() {
+        return this.numberRadioStation;
+    }
+
+    public int getCurrentRadioStation() {
+        return currentRadioStation;
+    }
+
+    public void setCurrentRadioStation(int currentChanel) {
+        if (currentChanel < 0) {
+            currentChanel = 9;
         }
-        if (newCurrentRadioStation > 9) {
-            newCurrentRadioStation = 0;
+        if (currentChanel > 9) {
+            currentChanel = 0;
         }
-        this.currentRadioStation = newCurrentRadioStation;
+        this.currentRadioStation = currentChanel;
     }
 
-    public void setCurrentRadioStationNext() {  //увеличиваю текущую радиостанцию на 9
-
-        setCurrentRadioStation(currentRadioStation + 1);
+    public void next() {
+        setCurrentRadioStation(currentRadioStation = currentRadioStation + 1);
     }
 
-    public void setCurrentRadioStationPrev() {  //
-        setCurrentRadioStation(currentRadioStation - 1);
+    public void prev() {
+        setCurrentRadioStation(currentRadioStation = currentRadioStation - 1);
     }
 
-    public int getCurrentVolume() { //узнаем текущую громкость
-        return this.currentVolume;
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) { //увеличиваю громкость на 1
-        if (newCurrentVolume < 0) {
-            newCurrentVolume = 0;
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
+            currentVolume = 0;
         }
-        if (newCurrentVolume > 10) {
-            newCurrentVolume = 10;
+        if (currentVolume > 100) {
+            currentVolume = 100;
         }
-        this.currentVolume = newCurrentVolume;
+        this.currentVolume = currentVolume;
     }
 
-    public void volumePlus() {
-        setCurrentVolume(currentVolume + 1);
+    public void up() {
+        setCurrentVolume(currentVolume = currentVolume + 1);
     }
 
-    public void volumeMinus() {
-        setCurrentVolume(currentVolume - 1);
+    public void down() {
+        setCurrentVolume(currentVolume = currentVolume - 1);
     }
 }
-
-
